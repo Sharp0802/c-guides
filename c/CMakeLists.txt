@@ -32,17 +32,17 @@ set(VERBOSE_OUTPUT
 ############################################
 add_custom_target(
     c-guide ALL
-    COMMAND pdflatex -interaction=nonstopmode "${SOURCE}"
-    WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
+    COMMAND pdflatex -interaction=nonstopmode -output-directory "${CMAKE_BINARY_DIR}" "${SOURCE}"
+    WORKING_DIRECTORY "${CMAKE_CURRENT_LIST_DIR}"
     BYPRODUCTS "${OUTPUT}"
     DEPENDS    "${SOURCE}"
     SOURCES    "${SOURCE}"
 )
-add_custom_command(
-    TARGET c-guide
-    POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E rm ${VERBOSE_OUTPUT}
-)
+#add_custom_command(
+#    TARGET c-guide
+#    POST_BUILD
+#    COMMAND ${CMAKE_COMMAND} -E rm ${VERBOSE_OUTPUT}
+#)
 
 if (DEFINED BROWSER)
     add_custom_target(
@@ -50,6 +50,12 @@ if (DEFINED BROWSER)
         COMMAND ${BROWSER} ${OUTPUT} &
         USES_TERMINAL
         VERBATIM
+        DEPENDS c-guide
+    )
+
+    add_custom_target(
+        refresh
+        COMMAND ${CMAKE_CURRENT_LIST_DIR}/refresh
         DEPENDS c-guide
     )
 endif ()
