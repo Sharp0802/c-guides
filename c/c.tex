@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{kotex}
+
+\usepackage{array}
+\usepackage{fancyhdr}
+\usepackage{atbegshi}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{etoolbox}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage[
+    type={CC},
+    modifier={by},
+    version={4.0},
+]{doclicense}
+
+\definecolor{light-gray}{gray}{0.95}
+\definecolor{gray}{gray}{0.4}
+\lstset{
+    columns=fullflexible,
+    frame=tlbr,
+    extendedchars=false,
+    inputencoding=utf8,
+    backgroundcolor=\color{light-gray},
+    xleftmargin=0.5cm,
+    framesep=4pt,
+    framerule=0pt
+}
+
+\AtBeginEnvironment{quote}{\par\singlespacing}
+
+\fancyhf{}
+\pagestyle{fancy}
+
+\title{Introduction to C Programming Language}
+\author{서영원}
+\date{April 2024}
+\begin{document}
+
+
+
+\maketitle
+
+\tableofcontents
+
+\vfill
+\doclicenseThis
+
+
+\pagebreak
+
+\section{저수준 언어와 고수준 언어}
+
+운영체제와 브라우저, 온갖 응용프로그램들까지 현대에 이르러 더이상
+C언어의 손길을 거치지 않은 프로그램은 없다.
+컴퓨터는 인간이 이해할 수 있는 언어는 이해하지 못한다고들 하는데,
+그렇다면 C언어는 어떻게 컴퓨터 시스템에서 실행될 수 있을까?
+인간이 지금껏 사용해온 언어, 자연어는 왜 컴퓨터 시스템에서 사용되지 않는
+것일까?
+
+\subsection{자연어의 모호성}
+
+\begin{quote}
+`마트가서 우유사고 만약에 아보카도 있으면 6개 사와'
+\end{quote}
+
+오늘 독자가 아내로부터 하달받은 명령이다.
+우리는 이를 해석함에 있어서 다음과 같이 2가지 해석을 마련할 수 있다.
+
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}[escapeinside=``]
+`마트로 이동한다.`
+`우유 1개 구매한다.`
+`만약 아보카도가 진열되어있다면:`
+    `아보카도 6개 구매한다.`
+    \end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}[escapeinside=``]
+`마트로 이동한다.`
+`만약 아보카도가 진열되어있다면:`
+    `우유 6개 구매한다.`
+`아니라면:`
+    `우유 1개 구매한다.`
+    \end{lstlisting}
+\end{minipage}
+
+만에 하나 둘 중에 잘못된 선택지를 골랐다면 감히 끔찍한 일이 닥치고 말
+것이다.
+
+마찬가지로, 컴퓨터를 프로그램함\footnote{프로그램을 컴퓨터에 내장하는 \\
+행위}에 있어서 이러한 모호성이 존재할 경우 이가 실행될 때에 컴퓨터는 둘
+중 어떠한 행위를 해야할 지 선택해야만 한다. 이는 사용자가 의도하지 않은
+동작을 초래할 수 있는 매우 위험한 상태다. 따라서, 그 자체로 모호성을
+내재한 자연어는 컴퓨터를 프로그램하기 위한 언어로 적절하지 못하다.
+
+\pagebreak
+
+\subsection{명령집합과 기계어}
+
+| 대신, 컴퓨터는 인위적으로 정의된 명령 집합에 따라 작동한다. 아보카도와
+우유를 위한 임무 달성을 위해 다음과 같이 명령 집합을 정의해보자.
+
+\begin{table}[!h]
+\begin{center}
+    \caption{아보카도 명령 집합}
+    \begin{tabular}{ || m{2em} | m{3.8em} | m{22em} || }
+        \hline
+        이름 & 매개변수 & 동작 \\
+        \hline\hline
+        buy & 물품 t, 자연수 n & t를 n개 만큼 구매한다. 아니라면 0으로 정의한다 \\
+        \hline
+        find & 물품 t & 물품 t가 존재한다면 r을 1로 정의한다. 아니라면 r을 0으로 정의한다. \\
+        \hline
+        move & 위치 p & r이 0이라면 위치 p로 이동한다. 아니라면 아무 동작도 하지 않는다. \\
+        \hline
+    \end{tabular}
+    \newline
+    \textit{\color{gray} \small r은 미지수 내지 변수라고 정의하자.
+    아직 너무 엄밀해질 필요는 없다.}
+\end{center}
+\end{table}
+
+이러한 명령집합을 사용하면 아래와 같이 \textbf{엄밀하게} 우리의 행위를
+정의해볼 수 있다. (명령은 위에서부터 순차적으로 실행한다.)
+
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}[escapeinside=``]
+buy(`우유`, 1)
+find(`아보카도`)
+move(`출구`)
+buy(`아보카도`, 6)
+    \end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}[escapeinside=``]
+buy(`우유`, 1)
+find(`아보카도`)
+move(`출구`)
+buy(`우유`, 5)
+    \end{lstlisting}
+\end{minipage}
+
+\end{document}
