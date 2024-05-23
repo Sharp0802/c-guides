@@ -52,6 +52,28 @@
 
 \pagebreak
 
+\section{사전 준비}
+
+C언어를 사용하기 위해선 \textit{컴파일러}라는 것이 필요하다.
+지금은 이해하지 않아도 좋다. 일단 설치해놓자.
+
+\subsection{Windows}
+
+\begin{enumerate}
+    \item \url{https://www.msys2.org/}에서 최신버전 msys2를 설치한다.
+    \item msys2를 실행하고 'pacman -S mingw-w64-ucrt-x86\_64-gcc'를 입력한다.
+    \item a'Proceed with installation? (Y/n)'이 출력되면 엔터키를 입력한다.
+    \item a제대로 설치되었는지 확인하기 위해 'gcc --version'을 입력한다.
+    \item a제대로 설치되었다면, 'gcc.exe 어쩌고 저쩌고...'등이 출력될 것이다.
+\end{enumerate}
+
+앞으로, gcc를 실행하라는 문장이 본문에서 발견되면, msys2를 실행하고 명령어를 입력하도록 하자.
+
+\subsection{Linux}
+
+리눅스 사용자라면, 자신의 패키지관리자가 무엇인지 알고 있을 것이다.
+해당 패키지관리자에서 \textit{gcc}를 설치하도록 하자.
+
 \section{C언어의 탄생}
 
 운영체제와 브라우저, 온갖 응용프로그램들까지 현대에 이르러 더이상
