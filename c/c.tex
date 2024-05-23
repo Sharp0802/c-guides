@@ -61,10 +61,10 @@ C언어를 사용하기 위해선 \textit{컴파일러}라는 것이 필요하�
 
 \begin{enumerate}
     \item \url{https://www.msys2.org/}에서 최신버전 msys2를 설치한다.
-    \item msys2를 실행하고 'pacman -S mingw-w64-ucrt-x86\_64-gcc'를 입력한다.
-    \item a'Proceed with installation? (Y/n)'이 출력되면 엔터키를 입력한다.
-    \item a제대로 설치되었는지 확인하기 위해 'gcc --version'을 입력한다.
-    \item a제대로 설치되었다면, 'gcc.exe 어쩌고 저쩌고...'등이 출력될 것이다.
+    \item msys2를 실행하고 `pacman -S mingw-w64-ucrt-x86\_64-gcc'를 입력한다.
+    \item `Proceed with installation? (Y/n)'이 출력되면 엔터키를 입력한다.
+    \item 제대로 설치되었는지 확인하기 위해 `gcc --version'을 입력한다.
+    \item 제대로 설치되었다면, `gcc.exe 어쩌고 저쩌고...'등이 출력될 것이다.
 \end{enumerate}
 
 앞으로, gcc를 실행하라는 문장이 본문에서 발견되면, msys2를 실행하고 명령어를 입력하도록 하자.
@@ -399,11 +399,11 @@ C언어는 기본적으로 ASM과 같은 저급언어
 20 END
 \end{lstlisting}
 
-위는 BASIC을 통해 화면에 'Hello, BASIC!'라는 문장을 출력하는 예제다.
+위는 BASIC을 통해 화면에 `Hello, BASIC!'라는 문장을 출력하는 예제다.
 
 영어를 할줄 안다면 대충 이해했을텐데, 
-첫 줄의 'PRINT "Hello, BASIC!"'는 'Hello, BASIC!'라는 문장을 출력하도록 하는 명령,
-두번째 줄의 'END'는 프로그램이 종료되었음을 알리는 명령이다.
+첫 줄의 `PRINT ``Hello, BASIC!"'는 `Hello, BASIC!'라는 문장을 출력하도록 하는 명령,
+두번째 줄의 `END'는 프로그램이 종료되었음을 알리는 명령이다.
 
 더 복잡한 예시를 살펴보자.
 
@@ -414,15 +414,15 @@ C언어는 기본적으로 ASM과 같은 저급언어
 40 NEXT I
 \end{lstlisting}
 
-위의 예시는 다음의 과정에 따라 'Hello, BASIC!'라는 문장을 100번 출력하는 예제다:
+위의 예시는 다음의 과정에 따라 `Hello, BASIC!'라는 문장을 100번 출력하는 예제다:
 
 \begin{enumerate}
-    \item 'N=10'은 변수 N의 값을 100으로 정의한다.
-    \item 'FOR I=1 TO N'은 변수 I를 1로 정의한다.
-    'NEXT I'가 호출되었을때, 변수 I의 값을 1 증가시키고,
-    I가 N 이하라면 'FOR I=1 TO N'의 직후로 돌아간다.
-    \item 'PRINT "Hello, BASIC!"'는 'Hello, BASIC!'라는 문장을 출력한다.
-    \item 'NEXT I'는 I가 N이하인 동안 'FOR I=1 TO N'부터 'NEXT I'까지의 명령들이 반복해서 실행되도록 한다.
+    \item `N=10'은 변수 N의 값을 100으로 정의한다.
+    \item `FOR I=1 TO N'은 변수 I를 1로 정의한다.
+    `NEXT I'가 호출되었을때, 변수 I의 값을 1 증가시키고,
+    I가 N 이하라면 `FOR I=1 TO N'의 직후로 돌아간다.
+    \item `PRINT ``Hello, BASIC!"'는 `Hello, BASIC!'라는 문장을 출력한다.
+    \item `NEXT I'는 I가 N이하인 동안 `FOR I=1 TO N'부터 `NEXT I'까지의 명령들이 반복해서 실행되도록 한다.
 \end{enumerate}
 
 물론, 입력도 받지 않고 출력만 하는 프로그램은 쓸모가 없다.
@@ -443,31 +443,31 @@ C언어는 기본적으로 ASM과 같은 저급언어
 \end{lstlisting}
 
 \begin{enumerate}
-    \item 'INPUT "How many stars? "; C' : 'How many stars? '를 출력하고, 숫자를 변수 C를 입력받는다.
-    \item 'S\$ = ""' : 문자열 변수 S\$의 값을 빈 문자열('')로 정의한다.
-    \item 'FOR I=1 TO C' : I를 1부터 C까지 반복한다.
-    \item 'S\$ = S\$ + "*"' : 문자열 S\$에 '*'를 덧붙인다.
-    \item 'NEXT I' : I가 C 이하라면 30번째 명령으로 돌아간다.
-    \item 'PRINT S\$' : 문자열 S\$를 출력한다.
-    \item 'INPUT "Do you want more? "; A\$' : 'Do you want more? '을 출력하고, 문자열을 변수 A\$에 입력받는다.
-    \item 'IF A\$ = "y" OR A\$ = "Y" THEN GOTO 10' : 만약 A\$가 'y'거나 'Y'라면 10번 명령으로 이동한다.
-    \item 'PRINT "Goodbye"' : 'Goodbye'를 출력한다.
-    \item 'END' : 프로그램을 종료한다
+    \item `INPUT ``How many stars? "; C' : `How many stars? '를 출력하고, 숫자를 변수 C를 입력받는다.
+    \item `S\$ = ``"' : 문자열 변수 S\$의 값을 빈 문자열(`')로 정의한다.
+    \item `FOR I=1 TO C' : I를 1부터 C까지 반복한다.
+    \item `S\$ = S\$ + ``*"' : 문자열 S\$에 `*'를 덧붙인다.
+    \item `NEXT I' : I가 C 이하라면 30번째 명령으로 돌아간다.
+    \item `PRINT S\$' : 문자열 S\$를 출력한다.
+    \item `INPUT ``Do you want more? "; A\$' : `Do you want more? '을 출력하고, 문자열을 변수 A\$에 입력받는다.
+    \item `IF A\$ = ``y" OR A\$ = ``Y" THEN GOTO 10' : 만약 A\$가 `y'거나 `Y'라면 10번 명령으로 이동한다.
+    \item `PRINT ``Goodbye"' : `Goodbye'를 출력한다.
+    \item `END' : 프로그램을 종료한다
 \end{enumerate}
 
-결국, 위 프로그램은 입력받은 숫자만큼 '*'을 출력하는 프로그램이다.
+결국, 위 프로그램은 입력받은 숫자만큼 `*'을 출력하는 프로그램이다.
 
-프로그래밍에 익숙하지 않거나, 'goto'를 사용해본적 없다면, 위 코드부터 슬슬 어지러움을 느낄 수 있다.
-물론, 아직까지 어지럼증을 느끼지 않을 순 있으나, '*'와 '-' 중 선택한 문자를 출력하도록 하는 프로그램이라던지,
+프로그래밍에 익숙하지 않거나, `goto'를 사용해본적 없다면, 위 코드부터 슬슬 어지러움을 느낄 수 있다.
+물론, 아직까지 어지럼증을 느끼지 않을 순 있으나, `*'와 `-' 중 선택한 문자를 출력하도록 하는 프로그램이라던지,
 여러 기능들을 추가하다보면 점점 내가 뭘 하고있는지 알수 없게되는 시점이 온다.
 
-이를 해결하기 위해 개발자들은 언어를 '구조화'시키기 시작했다.
+이를 해결하기 위해 개발자들은 언어를 `구조화'시키기 시작했다.
 
 \subsection{언어의 구조화}
 
 \subsubsection{Label과 Goto}
 
-개발자는 먼저 줄번호(명령의 앞에 붙어 명령의 번호와 순서를 지정하는 번호)를 없애고, 대신 '레이블(label)'을 도입했다.
+개발자는 먼저 줄번호(명령의 앞에 붙어 명령의 번호와 순서를 지정하는 번호)를 없애고, 대신 `레이블(label)'을 도입했다.
 예를 들면 다음과 같다:
 
 \begin{center}
@@ -494,20 +494,20 @@ GOTO Print
 \end{center}
 
 훨씬 가독성이 좋아진 모습이나,
-'GOTO'가 코드에 보이는 것 조차 싫었던 개발자들은 'GOTO'없이 코드를 작성하기 위해 여러 문법 설탕
+`GOTO'가 코드에 보이는 것 조차 싫었던 개발자들은 `GOTO'없이 코드를 작성하기 위해 여러 문법 설탕
 \footnote{
     Syntax Sugar, Syntactic Sugar.
     없으면 프로그램을 구현하지 못하는게 아닌데도, 즉, 컴퓨터가 아니라 사람이 이해하고 표현하기 쉽게 설계된 문법.
 }
-들과 '서브루틴(subroutine)'의 개념을 추가했다.
+들과 `서브루틴(subroutine)'의 개념을 추가했다.
 
 \subsubsection{DO WHILE ... LOOP}
 
-2세대 BASIC언어들에는 참 많은 문법 설탕들이 있지만, 그중에서도 'DO WHILE ... LOOP'를 소개하고자 한다.
+2세대 BASIC언어들에는 참 많은 문법 설탕들이 있지만, 그중에서도 `DO WHILE ... LOOP'를 소개하고자 한다.
 
 
 
-'GOTO'를 이용한 BASIC(상)과 'DO WHILE ... LOOP'를 이용한 BASIC(하)
+`GOTO'를 이용한 BASIC(상)과 `DO WHILE ... LOOP'를 이용한 BASIC(하)
 
 \begin{lstlisting}
 Print:
@@ -533,11 +533,11 @@ label을 없애고 WHILE을 통해 직관적으로 반복문의 구조와 조건
 }
 다. 
 
-이런 상황을 위해 'DO ... LOOP WHILE'문이 준비되어있다.
+이런 상황을 위해 `DO ... LOOP WHILE'문이 준비되어있다.
 
 
 
-'DO WHILE ... LOOP'를 이용한 BASIC(상)과 'DO ... LOOP WHILE'을 이용한 BASIC(하)
+`DO WHILE ... LOOP'를 이용한 BASIC(상)과 `DO ... LOOP WHILE'을 이용한 BASIC(하)
 
 \begin{lstlisting}
 PRINT "Hello, BASIC!"
@@ -565,7 +565,7 @@ LOOP WHILE S$ = "y" OR S$ = "Y"
 
 \subsubsection{서브루틴}
 
-특정한 갯수 만큼 별표('*')를 출력하는 등 자주 반복되는 명령들을 하나로 묶어서 사용할 순 없을까?
+특정한 갯수 만큼 별표(`*')를 출력하는 등 자주 반복되는 명령들을 하나로 묶어서 사용할 순 없을까?
 묶어서 사용할 수만 있으면, 같은 명령어들이 반복해서 쓰이는 상황들도 효과적으로 줄일 수 있을 것이다.
 
 이러한 고민 속에 탄생한 것이 서브루틴으로,
@@ -581,27 +581,27 @@ LOOP WHILE S$ = "y" OR S$ = "Y"
 110 RETURN
 \end{lstlisting}
 
-위 코드에서 'GOSUB 100'은 'GOTO'와 같이 줄번호 100으로 점프하고,
-'PRINT "Hello, SUBROUTINE!"'과 'RETURN'을 순차적으로 실행시킨다.
-유일한 차이점은, 'RETURN'이 실행되면 줄번호 10의 자리로 돌아와
-'PRINT "Bye, SUBROUTINE!"을 실행한다는 것이다.
+위 코드에서 `GOSUB 100'은 `GOTO'와 같이 줄번호 100으로 점프하고,
+`PRINT ``Hello, SUBROUTINE!"'과 `RETURN'을 순차적으로 실행시킨다.
+유일한 차이점은, `RETURN'이 실행되면 줄번호 10의 자리로 돌아와
+'PRINT ``Bye, SUBROUTINE!"을 실행한다는 것이다.
 
 이와 같이 서브루틴은 특정한 주소 공간에 명령어를 모아서 작성할 수 있게 하고,
 이를 통해 코드의 유지보수를 쉽게 만들어준다.
 
-그러나, 기술이 발전하고 BASIC에서 줄번호를 없애는 과정속에서 'GOSUB' 또한 개량되어야 했다.
-이를 해결하기 위해 개발자들은 '함수(function)'이라는 개념을 도입했다.
+그러나, 기술이 발전하고 BASIC에서 줄번호를 없애는 과정속에서 `GOSUB' 또한 개량되어야 했다.
+이를 해결하기 위해 개발자들은 `함수(function)'이라는 개념을 도입했다.
 
 \subsubsection{함수}
 
 독자가 한국인이라면, 함수는 중학교에서 알게된 수학 용어일 것이다.
-프로그래밍에서의 '함수'또한 비슷한 의미로,
+프로그래밍에서의 `함수'또한 비슷한 의미로,
 입력을 받아 (정의역에 대해) 일을 처리하기 위해 (출력을 가지기 위해; 치역을 가지기 위해)
 묶어놓은 일련의 명령어 묶음
 \footnote{
     함수형 프로그래밍을 사랑하는 개발자분들은 화내지 말아주길 바란다.
     이는 어디까지나 BASIC이나 C를 기준으로 작성된 것으로,
-    독자의 이해를 쉽게하기 위해 '프로그래밍에서의 함수'로 성급하게 일반화된 것이다.
+    독자의 이해를 쉽게하기 위해 `프로그래밍에서의 함수'로 성급하게 일반화된 것이다.
 }
 이다. (물론, 입력을 받지 않아도 좋다. 이에 대해선 후술한다.)
 
@@ -613,7 +613,7 @@ SUB `함수명`(`매개변수1`, `매개변수2`, ...)
 END SUB
 \end{lstlisting}
 
-위에서 'GOSUB'와 함께 서술된 코드를 함수 문법을 통해 다시 작성해보자:
+위에서 `GOSUB'와 함께 서술된 코드를 함수 문법을 통해 다시 작성해보자:
 
 \begin{lstlisting}
 CALL PrintHello()
@@ -631,7 +631,7 @@ END SUB
 \subsection{Hello, C!}
 
 C언어는 상술된 개념들을 대부분 문법적인 개량만 가지고 차용하고 있다.
-이제 C언어를 통해 'Hello, World!'를 출력해보자!
+이제 C언어를 통해 `Hello, World!'를 출력해보자!
 
 
 \begin{lstlisting}
@@ -641,7 +641,7 @@ main()
 }
 \end{lstlisting}
 
-위 코드를 'main.c'파일에 저장하고, 다음의 명령어를 실행해 실행파일
+위 코드를 `main.c'파일에 저장하고, 다음의 명령어를 실행해 실행파일
 \footnote{
     Unix계열이라면 a.out, Windows라면 a.exe가 기본 출력파일명이다.
 }
@@ -658,8 +658,8 @@ Hello, World!
 \end{lstlisting}
 
 먼저, 터미널(Windows라면 msys2)을 열고,
-'main.c'가 존재하는 폴더까지 이동한다.
-그 후, 'gcc main.c'를 입력해 'main.c'로부터 실행파일을 생성하도록 하자.
+`main.c'가 존재하는 폴더까지 이동한다.
+그 후, `gcc main.c'를 입력해 `main.c'로부터 실행파일을 생성하도록 하자.
 
 이제, 위의 C언어 코드를 분석해보자.
 위 C언어 코드는 아래의 BASIC 코드와 동일하다:
@@ -679,20 +679,20 @@ C언어에서는 함수를 정의하는데에 있어서,
 C언어에서도 함수를 $f(x) { ... }$라고 작성한다.
 물론, 입력을 받지 않고 단순하게 $f()$라고도 작성할 수 있다.
 
-비슷한 맥락에서, $main()$은 매개변수를 가지지 않는 'main'이라는 이름의 함수를 선언한 것이고,
+비슷한 맥락에서, $main()$은 매개변수를 가지지 않는 `main'이라는 이름의 함수를 선언한 것이고,
 그 밑의 ${ ... }$는 이 함수가 어떤 일을 하는지 서술한다.
 
 따라서, 위의 C언어 코드의 $main()$은 호출되었을때,
-'Hello, World!\\n'
+`Hello, World!\\n'
 /footnote{
-    '\\n'은 개행을 표현하는 이스케이프 문자(Escape Character)로,
+    `\\n'은 개행을 표현하는 이스케이프 문자(Escape Character)로,
     소스코드에서 표현하기 어려운 문자들
     (개행문자(line-break character), 탭 문자(tab character, tabulator character) 등)
-    을 표현하기 위해 '\\'와 특정한 문자를 결합해 대신 사용할 수 있도록 설계된 것이다.
+    을 표현하기 위해 `\\'와 특정한 문자를 결합해 대신 사용할 수 있도록 설계된 것이다.
 }
 를 출력하는 함수라고 말할 수 있다.
 
-또한, BASIC에서만 볼 수 있는 첫 행의 'CALL main()'은 왜 추가된 것일까?
+또한, BASIC에서만 볼 수 있는 첫 행의 `CALL main()'은 왜 추가된 것일까?
 사실, C언어에서는 BASIC처럼 함수에 포함되지 않는 명령을 작성할 수 없다.
 글로 읽어서는 이해하기 힘든데, 다음의 코드를 보며 이해해보자:
 
