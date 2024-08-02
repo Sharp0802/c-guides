@@ -2228,16 +2228,16 @@ int main()
     따라서, \V{string.h}에 우리가 사용할 함수들이 선언되어있음을 짐작할 수 있을 것이다.
     문제는 우리가 \V{string.h}의 내용을 여러번 붙여넣었을때 발생한다:
 
-        \begin{lstlisting}
-    #include <string.h>
-    #include <string.h>
-    ...
+    \begin{lstlisting}
+#include <string.h>
+#include <string.h>
+...
     \end{lstlisting}
 
     같은 내용을 두번 붙여넣게되면, 중복된 선언으로 인해 오류가 발생하지 않을까?
     C 언어는 이를 \V{\#define} 전처리문과 \V{\#if} 전처리문을 통해 해결한다.
 
-    \subsection{\V{\#define}문}
+    \subsection{\texttt{\#define} 문}
 
         \begin{lstlisting}  
 #define (*@\textit{identifier}@*) (*@\textit{replacement}@*)
@@ -2257,7 +2257,7 @@ int a = ONE;
 int a = 1;
         \end{lstlisting}
 
-    \subsection{\V{\#if}문}
+    \subsection{\texttt{\#if}문}
 
         \begin{lstlisting}
 #if (*@\textit{condition}@*)
