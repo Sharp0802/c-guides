@@ -4,14 +4,6 @@ project(c-guide)
 ############################################
 # Prerequisites Tests                      #
 ############################################
-if (NOT DEFINED BROWSER)
-    if (NOT DEFINED ENV{BROWSER})
-        message(WARNING "Couldn't get browser information; Please set BROWSER environment variable.")
-    else ()
-        set(BROWSER "$ENV{BROWSER}")
-    endif()
-endif ()
-
 find_program(PDFLATEX NAMES "pdflatex" "pdflatex.exe")
 if (NOT PDFLATEX)
     message(FATAL_MESSAGE "A required executable 'pdflatex' is not found. Did you add its directory to environment variable?")
@@ -22,9 +14,12 @@ endif ()
 ############################################
 set(SOURCE "${CMAKE_CURRENT_LIST_DIR}/c.tex")
 set(OUTPUT "${CMAKE_BINARY_DIR}/c.pdf")
-set(VERBOSE_OUTPUT
+set(ALL_OUTPUT
     "${CMAKE_BINARY_DIR}/c.aux"
     "${CMAKE_BINARY_DIR}/c.log"
+    "${CMAKE_BINARY_DIR}/c.out"
+    "${CMAKE_BINARY_DIR}/c.pdf"
+    "${CMAKE_BINARY_DIR}/c.toc"
 )
 
 ############################################
@@ -38,25 +33,3 @@ add_custom_target(
     DEPENDS    "${SOURCE}"
     SOURCES    "${SOURCE}"
 )
-#add_custom_command(
-#    TARGET c-guide
-#    POST_BUILD
-#    COMMAND ${CMAKE_COMMAND} -E rm ${VERBOSE_OUTPUT}
-#)
-
-if (DEFINED BROWSER)
-    add_custom_target(
-        preview
-        COMMAND ${BROWSER} ${OUTPUT} &
-        USES_TERMINAL
-        VERBATIM
-        DEPENDS c-guide
-    )
-
-    add_custom_target(
-        refresh
-        COMMAND ${CMAKE_CURRENT_LIST_DIR}/refresh
-        DEPENDS c-guide
-    )
-endif ()
-    
